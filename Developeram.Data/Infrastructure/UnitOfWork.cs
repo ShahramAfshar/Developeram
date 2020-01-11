@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Developeram.Data.Repositories;
 
-namespace ECommerce.Data
+namespace Developeram.Data
 {
     public class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext : DbContext, new()
 

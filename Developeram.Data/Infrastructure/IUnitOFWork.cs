@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Developeram.Data.Repositories;
 
 
-namespace ECommerce.Data
+namespace Developeram.Data
 {
     public interface IUnitOfWork<TContext> : IDisposable where TContext : DbContext
     {

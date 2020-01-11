@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ECommerce.Data
+namespace Developeram.Data
 {
    public interface IRepository<TEntity> where TEntity : class
    {

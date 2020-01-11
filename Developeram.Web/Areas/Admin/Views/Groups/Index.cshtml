@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Developeram.DomainModel.Models.Group>
+@using Developeram.Data
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShortText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.Raw(item.ShortText)
+        </td>
+        <td>
+            @Html.Raw(item.FullText)
+        </td>
+        <td>
+           @item.CreateTime
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.GroupId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.GroupId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.GroupId })
+        </td>
+    </tr>
+}
+
+</table>

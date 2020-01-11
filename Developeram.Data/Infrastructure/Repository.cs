@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ECommerce.Data
+namespace Developeram.Data
 {
     public abstract class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEntity : class
     {

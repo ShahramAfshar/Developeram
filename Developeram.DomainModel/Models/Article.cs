@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace Developeram.DomainModel.Models
 {
@@ -19,10 +20,12 @@ namespace Developeram.DomainModel.Models
 
         [Display(Name = "")]
         [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
+        [AllowHtml]
         public string ShortText { get; set; }
 
         [Display(Name = "")]
         [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
+        [AllowHtml]
         public string FullText { get; set; }
 
         [Display(Name = "")]
@@ -40,6 +43,9 @@ namespace Developeram.DomainModel.Models
         [Display(Name = "")]
         [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
         public string MetaKeywords { get; set; }
+
+        [Display(Name = "")]
+        public string ImageName { get; set; }
 
 
         public int GroupId { get; set; }

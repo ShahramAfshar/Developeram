@@ -14,21 +14,26 @@ namespace Developeram.DomainModel.Models
         [Key]
         public int GroupId { get; set; }
 
-        [Display(Name = "")]
+        [Display(Name = "عنوان")]
         [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
         public string Title { get; set; }
 
-        [Display(Name = "")]
+        [Display(Name = "توضیح کوتاه")]
         [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
         [AllowHtml]
+        [DataType(DataType.MultilineText)]
         public string ShortText { get; set; }
 
-        [Display(Name = "")]
+        [Display(Name = "متن کامل")]
         [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
         [AllowHtml]
+        [DataType(DataType.MultilineText)]
         public string FullText { get; set; }
 
-        [Display(Name = "")]
+        [Display(Name = "نام عکس")]
+        public string ImageName { get; set; }
+
+        [Display(Name = "تاریخ ثبت")]
         [Column(TypeName = "datetime2")]
         public DateTime CreateTime { get; set; }
 

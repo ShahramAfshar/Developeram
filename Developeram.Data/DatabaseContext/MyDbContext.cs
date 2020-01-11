@@ -15,6 +15,8 @@ namespace Developeram.Data.DatabaseContext
 
         }
 
+        public System.Data.Entity.DbSet<Developeram.DomainModel.Models.Group> Groups { get; set; }
+
         //static MyDbContext()
         //{
         //    Database.SetInitializer(new
