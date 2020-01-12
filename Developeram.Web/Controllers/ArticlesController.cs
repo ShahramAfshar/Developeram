@@ -54,7 +54,7 @@ namespace Developeram.Web.Controllers
                 db.CommentRepository.Insert(comment);
                 db.Commit();
 
-                return PartialView("ShowComments", db.CommentRepository.GetForArticle(comment.ArticleId));
+                return RedirectToAction("ShowArticle", new { });
 
             }
             return PartialView(comment);
