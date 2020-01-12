@@ -67,10 +67,26 @@
     <Compile Include="Migrations\202001110657587_init2.Designer.cs">
       <DependentUpon>202001110657587_init2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001120518078_init.cs" />
+    <Compile Include="Migrations\202001120518078_init.Designer.cs">
+      <DependentUpon>202001120518078_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001120527230_init4.cs" />
+    <Compile Include="Migrations\202001120527230_init4.Designer.cs">
+      <DependentUpon>202001120527230_init4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001120529280_init5.cs" />
+    <Compile Include="Migrations\202001120529280_init5.Designer.cs">
+      <DependentUpon>202001120529280_init5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ArticleRepository.cs" />
+    <Compile Include="Repositories\CommentRepository.cs" />
+    <Compile Include="Repositories\ContactUsRepository.cs" />
     <Compile Include="Repositories\GroupRepository.cs" />
+    <Compile Include="Repositories\SliderRepository.cs" />
+    <Compile Include="Repositories\TagRepository.cs" />
     <Compile Include="Utility\PersianCal.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +105,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001110657587_init2.resx">
       <DependentUpon>202001110657587_init2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001120518078_init.resx">
+      <DependentUpon>202001120518078_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001120527230_init4.resx">
+      <DependentUpon>202001120527230_init4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001120529280_init5.resx">
+      <DependentUpon>202001120529280_init5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

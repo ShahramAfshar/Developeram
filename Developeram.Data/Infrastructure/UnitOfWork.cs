@@ -68,6 +68,59 @@ namespace Developeram.Data
             }
         }
 
+        private ContactUsRepository contactUsRepository;
+        public ContactUsRepository ContactUsRepository
+        {
+            get
+            {
+                if (contactUsRepository == null)
+                {
+                    contactUsRepository = new ContactUsRepository(db);
+                }
+
+                return contactUsRepository;
+            }
+        }
+        private CommentRepository commentRepository;
+        public CommentRepository CommentRepository
+        {
+            get
+            {
+                if (commentRepository == null)
+                {
+                    commentRepository = new CommentRepository(db);
+                }
+
+                return commentRepository;
+            }
+        }
+        private TagRepository tagRepository;
+        public TagRepository TagRepository
+        {
+            get
+            {
+                if (tagRepository == null)
+                {
+                    tagRepository = new TagRepository(db);
+                }
+
+                return tagRepository;
+            }
+        }
+        private SliderRepository sliderRepository;
+        public SliderRepository SliderRepository
+        {
+            get
+            {
+                if (sliderRepository == null)
+                {
+                    sliderRepository = new SliderRepository(db);
+                }
+
+                return sliderRepository;
+            }
+        }
+
 
         #endregion
 

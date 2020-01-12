@@ -14,9 +14,13 @@ namespace Developeram.DomainModel.Models
         [Key]
         public int GroupId { get; set; }
 
-        [Display(Name = "عنوان")]
+        [Display(Name = "عنوان گروه")]
         [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
         public string Title { get; set; }
+
+        [Display(Name = "عنوان آدرس")]
+        [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
+        public string TitleUrl { get; set; }
 
         [Display(Name = "توضیح کوتاه")]
         [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]

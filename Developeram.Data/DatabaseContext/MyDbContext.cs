@@ -17,6 +17,12 @@ namespace Developeram.Data.DatabaseContext
 
         public System.Data.Entity.DbSet<Developeram.DomainModel.Models.Group> Groups { get; set; }
 
+        public System.Data.Entity.DbSet<Developeram.DomainModel.Models.Article> Articles { get; set; }
+
+        public System.Data.Entity.DbSet<Developeram.DomainModel.Models.Tag>  Tags { get; set; }
+        public System.Data.Entity.DbSet<Developeram.DomainModel.Models.Comment> Comments { get; set; }
+        public System.Data.Entity.DbSet<Developeram.DomainModel.Models.ContactUs>  ContactUs { get; set; }
+
         //static MyDbContext()
         //{
         //    Database.SetInitializer(new

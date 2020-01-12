@@ -7,150 +7,152 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Developeram.Data;
 using Developeram.Data.DatabaseContext;
 using Developeram.DomainModel.Models;
-using Developeram.Data;
-
 
 namespace Developeram.Web.Areas.Admin.Controllers
 {
-    public class GroupsController : Controller
+    public class ArticlesController : Controller
     {
         private readonly UnitOfWork<MyDbContext> db = new UnitOfWork<MyDbContext>();
 
-        // GET: Admin/Groups
+        // GET: Admin/Articles
         public ActionResult Index()
         {
-            return View(db.GroupRepository.GetAll());
+
+            return View(db.ArticleRepository.GetAll());
         }
 
-        // GET: Admin/Groups/Details/5
+        // GET: Admin/Articles/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Group group = db.GroupRepository.GetById(id);
-            if (group == null)
+            Article article = db.ArticleRepository.GetById(id);
+            if (article == null)
             {
                 return HttpNotFound();
             }
-            return View(group);
+            return View(article);
         }
 
-        // GET: Admin/Groups/Create
+        // GET: Admin/Articles/Create
         public ActionResult Create()
         {
+            ViewBag.GroupId = new SelectList(db.GroupRepository.GetAll(), "GroupId", "TitleUrl");
             return View();
         }
 
-        // POST: Admin/Groups/Create
+        // POST: Admin/Articles/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "GroupId,Title,TitleUrl,ShortText,FullText,CreateTime")] Group group, HttpPostedFileBase imgup)
+        public ActionResult Create([Bind(Include = "ArticleId,Title,ShortText,FullText,CreateDate,MetaDescription,MetaOwner,MetaKeywords,ImageName,GroupId")] Article article, HttpPostedFileBase imgup)
         {
             if (ModelState.IsValid)
             {
-              
+
                 if (imgup != null)
                 {
-                    group.ImageName = Guid.NewGuid().ToString() + Path.GetExtension(imgup.FileName);
-                    imgup.SaveAs(Server.MapPath("/Images/Groups/" + group.ImageName));
+                    article.ImageName = Guid.NewGuid().ToString() + Path.GetExtension(imgup.FileName);
+                    imgup.SaveAs(Server.MapPath("/Images/Articles/" + article.ImageName));
 
                 }
                 else
-                    group.ImageName = "images.jpg";
+                    article.ImageName = "images.jpg";
 
 
-                group.CreateTime = DateTime.Now;
+                article.CreateDate = DateTime.Now;
 
-
-                db.GroupRepository.Insert(group);
+                db.ArticleRepository.Insert(article);
                 db.Commit();
 
                 return RedirectToAction("Index");
             }
 
-            return View(group);
+            ViewBag.GroupId = new SelectList(db.GroupRepository.GetAll(), "GroupId", "TitleUrl", article.GroupId);
+            return View(article);
         }
 
-        // GET: Admin/Groups/Edit/5
+        // GET: Admin/Articles/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Group group = db.GroupRepository.GetById(id);
-            if (group == null)
+            Article article = db.ArticleRepository.GetById(id);
+            if (article == null)
             {
                 return HttpNotFound();
             }
-            return View(group);
+            ViewBag.GroupId = new SelectList(db.GroupRepository.GetAll(), "GroupId", "TitleUrl", article.GroupId);
+            return View(article);
         }
 
-        // POST: Admin/Groups/Edit/5
+        // POST: Admin/Articles/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "GroupId,Title,TitleUrl,ShortText,FullText,CreateTime,ImageName")] Group group, HttpPostedFileBase imgup)
+        public ActionResult Edit([Bind(Include = "ArticleId,Title,ShortText,FullText,CreateDate,MetaDescription,MetaOwner,MetaKeywords,ImageName,GroupId")] Article article, HttpPostedFileBase imgup)
         {
             if (ModelState.IsValid)
             {
 
                 if (imgup != null)
                 {
-                    if (group.ImageName != "images.jpg")
+                    if (article.ImageName != "images.jpg")
                     {
-                        System.IO.File.Delete(Server.MapPath("/Images/Groups/" + group.ImageName));
+                        System.IO.File.Delete(Server.MapPath("/Images/Articles/" + article.ImageName));
                     }
 
-                    group.ImageName = Guid.NewGuid().ToString() + Path.GetExtension(imgup.FileName);
-                    imgup.SaveAs(Server.MapPath("/Images/Groups/" + group.ImageName));
+                    article.ImageName = Guid.NewGuid().ToString() + Path.GetExtension(imgup.FileName);
+                    imgup.SaveAs(Server.MapPath("/Images/Articles/" + article.ImageName));
                 }
-               
-                   // group.ImageName = "images.jpg";
 
-                db.GroupRepository.Update(group);
+                db.ArticleRepository.Update(article);
                 db.Commit();
 
                 return RedirectToAction("Index");
             }
-            return View(group);
+            ViewBag.GroupId = new SelectList(db.GroupRepository.GetAll(), "GroupId", "TitleUrl", article.GroupId);
+            return View(article);
         }
 
-        // GET: Admin/Groups/Delete/5
+        // GET: Admin/Articles/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Group group = db.GroupRepository.GetById(id);
-            if (group == null)
+            Article article = db.ArticleRepository.GetById(id);
+            if (article == null)
             {
                 return HttpNotFound();
             }
-            return View(group);
+
+            if (article.ImageName != "images.jpg")
+            {
+                System.IO.File.Delete(Server.MapPath("/Images/Articles/" + article.ImageName));
+            }
+
+
+            return View(article);
         }
 
-        // POST: Admin/Groups/Delete/5
+        // POST: Admin/Articles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Group group = db.GroupRepository.GetById(id);
-
-            if (group.ImageName != "images.jpg")
-            {
-                System.IO.File.Delete(Server.MapPath("/Images/Groups/" + group.ImageName));
-            }
-
-            db.GroupRepository.Delete(group);
+            Article article = db.ArticleRepository.GetById(id);
+            db.ArticleRepository.Delete(article);
             db.Commit();
 
             return RedirectToAction("Index");

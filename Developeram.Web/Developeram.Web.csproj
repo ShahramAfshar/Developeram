@@ -181,8 +181,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ArticlesController.cs" />
     <Compile Include="Areas\Admin\Controllers\GroupsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SlidersController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -246,7 +248,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="HtmlPage1.html" />
     <Content Include="Images\Articles\images.jpg" />
     <Content Include="Images\Groups\images.jpg" />
     <Content Include="Plugin\ckeditor\adapters\jquery.js" />
@@ -1426,6 +1427,16 @@
     <Content Include="Plugin\ckeditor\_samples\adobeair\run.bat" />
     <Content Include="Plugin\ckeditor\_samples\adobeair\run.sh" />
     <Content Include="Plugin\ckeditor\_samples\assets\output_for_flash.fla" />
+    <Content Include="Areas\Admin\Views\Articles\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Articles\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Articles\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Articles\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Articles\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Sliders\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Sliders\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Sliders\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Sliders\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Sliders\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
