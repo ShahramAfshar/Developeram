@@ -1,0 +1,10 @@
+﻿@model Developeram.DomainModel.Models.Article
+
+@{
+    ViewBag.Title = "ShowArticle";
+}
+
+<h1>@Model.Title</h1>
+@Html.Raw(Model.ShortText)
+@Html.Raw(Model.FullText)
+

@@ -22,6 +22,7 @@ namespace Developeram.Data.DatabaseContext
         public System.Data.Entity.DbSet<Developeram.DomainModel.Models.Tag>  Tags { get; set; }
         public System.Data.Entity.DbSet<Developeram.DomainModel.Models.Comment> Comments { get; set; }
         public System.Data.Entity.DbSet<Developeram.DomainModel.Models.ContactUs>  ContactUs { get; set; }
+        public System.Data.Entity.DbSet<Developeram.DomainModel.Models.Slider>  Sliders { get; set; }
 
         //static MyDbContext()
         //{

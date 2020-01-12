@@ -18,6 +18,10 @@ namespace Developeram.DomainModel.Models
         [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
         public string Title { get; set; }
 
+        [Display(Name = "عنوان آدرس")]
+        [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
+        public string TitleUrl { get; set; }
+
         [Display(Name = "متن کوتاه")]
         [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
         [AllowHtml]

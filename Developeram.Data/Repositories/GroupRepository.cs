@@ -1,5 +1,6 @@
 ﻿using Developeram.Data.DatabaseContext;
 using Developeram.DomainModel.Models;
+using Developeram.DomainModel.ViewModels;
 using Developeram.Data;
 using System;
 using System.Collections.Generic;
@@ -14,8 +15,8 @@ namespace Developeram.Data.Repositories
     public interface IGroupRepository : IRepository<Group>
     {
         //------Definition Private Functions Model -------------//
-      //  IEnumerable<Product> Search(string q);
 
+        Group GetByTitleUrl(string groupTitleUrl);
     }
 
     public class GroupRepository : Repository<Group>, IGroupRepository
@@ -27,15 +28,12 @@ namespace Developeram.Data.Repositories
             this.db = (this.db ?? (MyDbContext)db);
         }
 
-        //public IEnumerable<Product> Search(string q)
-        //{
-        //    var Tags = GetAll().Where(t => t.Title == q).Select(t => t.Product).ToList();
-        //    return Tags;
-        //}
 
 
-
-
-
+        public Group GetByTitleUrl(string groupTitleUrl)
+        {
+            MyDbContext mydb = new MyDbContext();
+         return  mydb.Groups.Where(g => g.TitleUrl.Trim() == groupTitleUrl.Trim()).SingleOrDefault();
+        }
     }
 }

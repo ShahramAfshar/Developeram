@@ -7,6 +7,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Developeram.DomainModel.ViewModels;
 
 namespace Developeram.Data.Repositories
 {
@@ -14,7 +15,7 @@ namespace Developeram.Data.Repositories
     public interface IArticleRepository : IRepository<Article>
     {
         //------Definition Private Functions Model -------------//
-        //  IEnumerable<Product> Search(string q);
+
 
     }
 
@@ -26,6 +27,8 @@ namespace Developeram.Data.Repositories
         {
             this.db = (this.db ?? (MyDbContext)db);
         }
+
+
 
         //public IEnumerable<Product> Search(string q)
         //{

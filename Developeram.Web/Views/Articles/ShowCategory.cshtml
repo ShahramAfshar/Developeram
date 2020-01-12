@@ -1,0 +1,30 @@
+﻿@model Developeram.DomainModel.Models.Group
+@using Developeram.DomainModel.Models
+@{
+    ViewBag.Title = "ShowCategory";
+}
+
+<h1>@Model.Title</h1>
+
+<img src="/Images/Groups/@Model.ImageName" title="@Model.Title" alt="@Model.Title" />
+@Html.Raw(Model.ShortText)
+
+@Html.Raw(Model.FullText)
+
+@{ 
+    IEnumerable<Article> articles = ViewBag.Articles as IEnumerable<Article>;
+
+
+    if (articles.Any())
+    {
+        <ul>
+        @foreach (var item in articles)
+        {
+            <li>
+                <a href="/@Model.TitleUrl/@item.ArticleId/@item.TitleUrl.Replace(" ","-")">@item.Title</a>
+            </li> 
+        }
+            </ul>
+    }
+
+}
