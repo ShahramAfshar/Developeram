@@ -30,5 +30,34 @@ namespace Developeram.Web.Controllers
             Article article = db.ArticleRepository.GetById(id);
             return View(article);
         }
+
+
+        public ActionResult ShowComments(int id)
+        {
+            return PartialView(db.CommentRepository.GetForArticle(id));
+        }
+
+        public ActionResult CreateComment(int id)
+        {
+            return PartialView(new Comment()
+            {
+                ArticleId = id
+            });
+        }
+
+        [HttpPost]
+        public ActionResult CreateComment(Comment comment)
+        {
+            if (ModelState.IsValid)
+            {
+                comment.CreateDate = DateTime.Now;
+                db.CommentRepository.Insert(comment);
+                db.Commit();
+
+                return PartialView("ShowComments", db.CommentRepository.GetForArticle(comment.ArticleId));
+
+            }
+            return PartialView(comment);
+        }
     }
 }

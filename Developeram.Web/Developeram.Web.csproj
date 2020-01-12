@@ -2190,6 +2190,8 @@
     <Content Include="Views\Home\_PartialSlider.cshtml" />
     <Content Include="Views\Articles\ShowCategory.cshtml" />
     <Content Include="Views\Articles\ShowArticle.cshtml" />
+    <Content Include="Views\Articles\CreateComment.cshtml" />
+    <Content Include="Views\Articles\ShowComments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

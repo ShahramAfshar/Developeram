@@ -13,10 +13,10 @@ namespace Developeram.Data.Repositories
 
         public interface ICommentRepository : IRepository<Comment>
         {
-            //------Definition Private Functions Model -------------//
-    
+        //------Definition Private Functions Model -------------//
+        IEnumerable<Comment> GetForArticle(int articleId);
 
-        }
+    }
 
         public class CommentRepository : Repository<Comment>, ICommentRepository
     {
@@ -27,7 +27,10 @@ namespace Developeram.Data.Repositories
                 this.db = (this.db ?? (MyDbContext)db);
             }
 
-
+        public IEnumerable<Comment> GetForArticle(int articleId)
+        {
+            return GetAll().Where(c => c.ArticleId == articleId);
+        }
 
         //public IList<User> GetActiveUsers()
         //{
