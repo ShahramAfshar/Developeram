@@ -15,7 +15,7 @@ namespace Developeram.Data.Repositories
     public interface IArticleRepository : IRepository<Article>
     {
         //------Definition Private Functions Model -------------//
-
+        IEnumerable<Article> Search(string q);
 
     }
 
@@ -26,6 +26,12 @@ namespace Developeram.Data.Repositories
         public ArticleRepository(DbContext dbContext) : base(dbContext)
         {
             this.db = (this.db ?? (MyDbContext)db);
+        }
+
+        public IEnumerable<Article> Search(string q)
+        {
+            return GetAll().Where(a => a.FullText.Contains(q) || a.ShortText.Contains(q) || a.Title.Contains(q) || a.TitleUrl.Contains(q));
+
         }
 
 

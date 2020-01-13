@@ -54,10 +54,16 @@ namespace Developeram.Web.Controllers
                 db.CommentRepository.Insert(comment);
                 db.Commit();
 
-                return RedirectToAction("ShowArticle", new { });
+                return PartialView("ShowComments", db.CommentRepository.GetForArticle(comment.ArticleId));
 
             }
             return PartialView(comment);
+        }
+
+        public ActionResult Search(string q)
+        {
+            ViewBag.search = q;
+            return View(db.ArticleRepository.Search(q));
         }
     }
 }

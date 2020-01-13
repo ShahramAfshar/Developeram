@@ -14,7 +14,7 @@ namespace Developeram.DomainModel.Models
 
         [Display(Name = "مقاله")]
         [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
-        public int ArticleId { get; set; }
+        public int GroupId { get; set; }
 
         [Display(Name = "کلمه کلیدی")]
         [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
@@ -26,6 +26,6 @@ namespace Developeram.DomainModel.Models
 
         }
 
-        public virtual Article  Article { get; set; }
+        public virtual Group   Group { get; set; }
     }
 }

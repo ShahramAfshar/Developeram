@@ -50,7 +50,7 @@ namespace Developeram.Web.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "GroupId,Title,TitleUrl,ShortText,FullText,CreateTime")] Group group, HttpPostedFileBase imgup)
+        public ActionResult Create([Bind(Include = "GroupId,Title,TitleUrl,ShortText,FullText,CreateTime")] Group group, HttpPostedFileBase imgup, string tags)
         {
             if (ModelState.IsValid)
             {
@@ -66,6 +66,19 @@ namespace Developeram.Web.Areas.Admin.Controllers
 
 
                 group.CreateTime = DateTime.Now;
+
+                if (!string.IsNullOrEmpty(tags))
+                {
+                    string[] tag = tags.Split('-');
+                    foreach (string t in tag)
+                    {
+                        db.TagRepository.Insert(new Tag()
+                        {
+                            GroupId = group.GroupId,
+                            Title = t.Trim()
+                        });
+                    }
+                }
 
 
                 db.GroupRepository.Insert(group);
@@ -89,6 +102,8 @@ namespace Developeram.Web.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
+
+            ViewBag.Tags = string.Join(",", group.Tags.Select(t => t.Title).ToList());
             return View(group);
         }
 
@@ -97,7 +112,7 @@ namespace Developeram.Web.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "GroupId,Title,TitleUrl,ShortText,FullText,CreateTime,ImageName")] Group group, HttpPostedFileBase imgup)
+        public ActionResult Edit([Bind(Include = "GroupId,Title,TitleUrl,ShortText,FullText,CreateTime,ImageName")] Group group, HttpPostedFileBase imgup, string tags)
         {
             if (ModelState.IsValid)
             {
@@ -112,14 +127,35 @@ namespace Developeram.Web.Areas.Admin.Controllers
                     group.ImageName = Guid.NewGuid().ToString() + Path.GetExtension(imgup.FileName);
                     imgup.SaveAs(Server.MapPath("/Images/Groups/" + group.ImageName));
                 }
-               
-                   // group.ImageName = "images.jpg";
+
+
+                //start tags
+                db.TagRepository.GetMany(t => t.GroupId == group.GroupId).ToList().ForEach(t => db.TagRepository.Delete(t));
+
+
+                if (!string.IsNullOrEmpty(tags))
+                {
+                    string[] tag = tags.Split('-');
+                    foreach (string t in tag)
+                    {
+                        db.TagRepository.Insert(new Tag()
+                        {
+                            GroupId = group.GroupId,
+                            Title = t.Trim()
+                        });
+                    }
+                }
+                //end tags
+
+                // group.ImageName = "images.jpg";
 
                 db.GroupRepository.Update(group);
                 db.Commit();
 
                 return RedirectToAction("Index");
             }
+
+            ViewBag.Tags = tags;
             return View(group);
         }
 

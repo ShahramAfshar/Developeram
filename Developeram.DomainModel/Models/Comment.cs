@@ -35,6 +35,9 @@ namespace Developeram.DomainModel.Models
         public System.DateTime CreateDate { get; set; }
         public Nullable<int> ParentID { get; set; }
 
+        [Display(Name = "نمایش")]
+        public bool IsShow { get; set; }
+
 
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual Comment Comment2 { get; set; }

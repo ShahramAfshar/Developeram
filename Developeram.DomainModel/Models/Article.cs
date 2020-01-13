@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace Developeram.DomainModel.Models
 {
-    public class Article
+    public class Article:MetaTag
     {
         [Key]
         public int ArticleId { get; set; }
@@ -38,18 +38,6 @@ namespace Developeram.DomainModel.Models
         [Column(TypeName = "datetime2")]
         public DateTime CreateDate { get; set; }
 
-        [Display(Name = "متا توضیحات")]
-        [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
-        public string MetaDescription { get; set; }
-
-        [Display(Name = "متاسازنده")]
-        [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
-        public string MetaOwner { get; set; }
-
-        [Display(Name = "متا کلمه کلید")]
-        [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
-        public string MetaKeywords { get; set; }
-
         [Display(Name = "عکس")]
         public string ImageName { get; set; }
 
@@ -58,7 +46,6 @@ namespace Developeram.DomainModel.Models
         public virtual Group Group { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
-        public virtual ICollection<Tag>  Tags { get; set; }
 
 
     }

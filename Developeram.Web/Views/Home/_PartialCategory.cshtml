@@ -11,13 +11,13 @@
                         foreach (var item in Model)
                         {
                 <li>
-                    <a href="/Products/GetproductByGroup?productGroupId=@item.TitleUrl">@item.TitleUrl </a> <span class="down"></span>
+                    <a href="/Article/@item.TitleUrl/@item.Title.Replace(" ","-")">@item.TitleUrl </a> <span class="down"></span>
                     @if (articles.Any(a=>a.GroupId == item.GroupId))
                     {
                         <ul>
                             @foreach (var subGroup in articles.Where(a => a.GroupId == item.GroupId))
                             {
-                                <li><a href="/Products/GetproductByGroup?productGroupId=@subGroup.Title">@subGroup.Title</a></li>
+                                <li><a href="/@item.TitleUrl/@subGroup.ArticleId/@subGroup.TitleUrl.Replace(" ","-")">@subGroup.Title</a></li>
                             }
                         </ul>
                     }

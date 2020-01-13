@@ -251,6 +251,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Images\Articles\images.jpg" />
+    <Content Include="Images\avatar.jpg" />
     <Content Include="Images\Groups\images.jpg" />
     <Content Include="Plugin\ckeditor\adapters\jquery.js" />
     <Content Include="Plugin\ckeditor\build-config.js" />
@@ -2192,6 +2193,8 @@
     <Content Include="Views\Articles\ShowArticle.cshtml" />
     <Content Include="Views\Articles\CreateComment.cshtml" />
     <Content Include="Views\Articles\ShowComments.cshtml" />
+    <Content Include="Views\Shared\_MenuPartial.cshtml" />
+    <Content Include="Views\Articles\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

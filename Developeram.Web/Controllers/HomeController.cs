@@ -58,5 +58,10 @@ namespace Developeram.Web.Controllers
             return View(contactUs);
 
         }
+
+        public ActionResult Menu()
+        {
+            return PartialView("_MenuPartial", db.GroupRepository.GetAll());
+        }
     }
 }

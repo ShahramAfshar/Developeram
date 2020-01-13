@@ -127,7 +127,7 @@
 
                         <!-- Mini Cart End-->
                         <!-- جستجو Start-->
-                        <form action="/Search" method="get">
+                        <form action="/Articles/Search" method="get">
                             <div class="col-table-cell col-lg-3 col-md-3 col-sm-6 col-xs-12 inner">
                                 <div id="search" class="input-group">
                                     <input id="filter_name" type="text" name="q" value="" placeholder="جستجو..." class="form-control input-lg" />
@@ -145,12 +145,7 @@
                 <nav id="menu" class="navbar">
                     <div class="navbar-header"> <span class="visible-xs visible-sm"> منو <b></b></span></div>
                     <div class="collapse navbar-collapse navbar-ex1-collapse">
-                        <ul class="nav navbar-nav">
-                            <li><a class="home_link" title="خانه" href="/"><span>خانه</span></a></li>
-                            <li class="contact-link"><a href="/Home/Contact">تماس با ما</a></li>
-                            <li class="contact-link"><a href="/Home/About">درباره ما</a></li>
-
-                        </ul>
+@Html.Action("Menu","Home")
                     </div>
                 </nav>
             </div>
@@ -240,7 +235,10 @@
                 <div class="container">
                     <div id="powered" class="clearfix">
                         <div class="powered_text pull-left flip">
-                            <p>کپی رایت © 2016 فروشگاه شما | پارسی سازی و ویرایش توسط <a href="https://mrcode.ir" target="_blank">مسترکد</a></p>
+                            <p>
+                                @DateTime.Now.Year
+                                develperam
+                            </p>
                         </div>
                         <div class="social pull-right flip"> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/Template/image/socialicons/facebook.png" alt="Facebook" title="Facebook"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/Template/image/socialicons/twitter.png" alt="Twitter" title="Twitter"> </a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/Template/image/socialicons/google_plus.png" alt="Google+" title="Google+"> </a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/Template/image/socialicons/pinterest.png" alt="Pinterest" title="Pinterest"> </a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/Template/image/socialicons/rss.png" alt="RSS" title="RSS"> </a> </div>
                     </div>

@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace Developeram.DomainModel.Models
 {
-    public class Group
+    public class Group:MetaTag
     {
         [Key]
         public int GroupId { get; set; }
@@ -43,6 +43,7 @@ namespace Developeram.DomainModel.Models
 
 
         public virtual IEnumerable<Article> Articles { get; set; }
+        public virtual ICollection<Tag> Tags { get; set; }
 
     }
 }

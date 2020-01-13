@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Developeram.DomainModel.Models.Group>
+
+    <ul class="nav navbar-nav">
+        <li><a class="home_link" title="خانه" href="/"><span>خانه</span></a></li>
+
+
+        @foreach (var item in Model)
+        {
+            <li class="contact-link"><a href="/Article/@item.TitleUrl/@item.Title.Replace(" ","-")">@item.Title</a></li>
+        }
+
+
+        <li class="contact-link"><a href="/Home/Contact">تماس با ما</a></li>
+        <li class="contact-link"><a href="/Home/About">درباره ما</a></li>
+
+    </ul>

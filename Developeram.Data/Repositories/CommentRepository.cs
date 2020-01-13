@@ -29,7 +29,8 @@ namespace Developeram.Data.Repositories
 
         public IEnumerable<Comment> GetForArticle(int articleId)
         {
-            return GetAll().Where(c => c.ArticleId == articleId);
+            return GetAll().Where(c => c.ArticleId == articleId)
+                           .Where(c=>c.IsShow==true);
         }
 
         //public IList<User> GetActiveUsers()
