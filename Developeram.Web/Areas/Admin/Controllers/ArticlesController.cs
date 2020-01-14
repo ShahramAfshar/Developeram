@@ -51,7 +51,7 @@ namespace Developeram.Web.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ArticleId,Title,ShortText,FullText,CreateDate,MetaDescription,MetaOwner,MetaKeywords,ImageName,GroupId")] Article article, HttpPostedFileBase imgup)
+        public ActionResult Create([Bind(Include = "ArticleId,Title,ShortText,FullText,CreateDate,ImageName,GroupId,MetaAuthor,MetaDescription,MetaKeywords,MetaOwner,TitleUrl")] Article article, HttpPostedFileBase imgup)
         {
             if (ModelState.IsValid)
             {
@@ -67,6 +67,7 @@ namespace Developeram.Web.Areas.Admin.Controllers
 
 
                 article.CreateDate = DateTime.Now;
+                article.ShortLink = GenerateShortKey();
 
                 db.ArticleRepository.Insert(article);
                 db.Commit();
@@ -99,7 +100,7 @@ namespace Developeram.Web.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ArticleId,Title,ShortText,FullText,CreateDate,MetaDescription,MetaOwner,MetaKeywords,ImageName,GroupId")] Article article, HttpPostedFileBase imgup)
+        public ActionResult Edit([Bind(Include = "ArticleId,Title,ShortText,FullText,CreateDate,ImageName,GroupId,MetaAuthor,MetaDescription,MetaKeywords,MetaOwner,TitleUrl")] Article article, HttpPostedFileBase imgup)
         {
             if (ModelState.IsValid)
             {
@@ -165,6 +166,18 @@ namespace Developeram.Web.Areas.Admin.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private string GenerateShortKey(int lenght = 4)
+        {
+            string key = Guid.NewGuid().ToString().Replace("-", "").Substring(0, lenght);
+
+            while (db.ArticleRepository.ExistKey(key))
+            {
+                key = Guid.NewGuid().ToString().Replace("-", "").Substring(0, lenght);
+            }
+
+            return key;
         }
     }
 }

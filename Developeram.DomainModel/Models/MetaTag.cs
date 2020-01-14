@@ -13,15 +13,19 @@ namespace Developeram.DomainModel.Models
 
         [Display(Name = "متا کلمه کلید")]
         [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
-        public string Keywords { get; set; }
+        public string MetaKeywords { get; set; }
 
         [Display(Name = "متا توضیحات ")]
         [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
-        public string Description { get; set; }
+        public string MetaDescription { get; set; }
 
         [Display(Name = "متا نویسنده ")]
         [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
-        public string author { get; set; }
+        public string MetaAuthor { get; set; }
+
+        [Display(Name = "متا مالک ")]
+        [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
+        public string MetaOwner { get; set; }
 
 
     }

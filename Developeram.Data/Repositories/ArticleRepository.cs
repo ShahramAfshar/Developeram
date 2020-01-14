@@ -16,6 +16,8 @@ namespace Developeram.Data.Repositories
     {
         //------Definition Private Functions Model -------------//
         IEnumerable<Article> Search(string q);
+        bool ExistKey(string key);
+
 
     }
 
@@ -27,6 +29,13 @@ namespace Developeram.Data.Repositories
         {
             this.db = (this.db ?? (MyDbContext)db);
         }
+
+        public bool ExistKey(string key)
+        {
+          return  GetAll().Any(a => a.ShortLink == key);
+        }
+
+
 
         public IEnumerable<Article> Search(string q)
         {

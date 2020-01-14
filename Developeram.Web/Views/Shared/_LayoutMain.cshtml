@@ -5,8 +5,8 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="/Template/image/favicon.png" rel="icon" />
-    <title>@ViewBag.Title</title>
-    <meta name="description" content="Responsive and clean html template design for any kind of ecommerce webshop">
+    <title>دولوپرم - @ViewBag.Title</title>
+
     <!-- CSS Part Start-->
     <link rel="stylesheet" type="text/css" href="/Template/js/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/Template/js/bootstrap/css/bootstrap-rtl.min.css" />
@@ -165,6 +165,7 @@
                         <h3 class="subtitle">جدیدترین ها</h3>
                         @Html.Action("GetLastAdd", "Products")*@
 
+                        @RenderSection("shortlink",false)
 
                     </aside>
                     <!-- Left Part End-->

@@ -50,7 +50,7 @@ namespace Developeram.Web.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "GroupId,Title,TitleUrl,ShortText,FullText,CreateTime")] Group group, HttpPostedFileBase imgup, string tags)
+        public ActionResult Create([Bind(Include = "GroupId,Title,TitleUrl,ShortText,FullText,CreateTime,MetaAuthor,MetaDescription,MetaKeywords,MetaOwner")] Group group, HttpPostedFileBase imgup, string tags)
         {
             if (ModelState.IsValid)
             {
@@ -66,6 +66,7 @@ namespace Developeram.Web.Areas.Admin.Controllers
 
 
                 group.CreateTime = DateTime.Now;
+                group.ShortLink = GenerateShortKey();
 
                 if (!string.IsNullOrEmpty(tags))
                 {
@@ -112,7 +113,7 @@ namespace Developeram.Web.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "GroupId,Title,TitleUrl,ShortText,FullText,CreateTime,ImageName")] Group group, HttpPostedFileBase imgup, string tags)
+        public ActionResult Edit([Bind(Include = "GroupId,Title,TitleUrl,ShortText,FullText,CreateTime,ImageName,MetaAuthor,MetaDescription,MetaKeywords,MetaOwner")] Group group, HttpPostedFileBase imgup, string tags)
         {
             if (ModelState.IsValid)
             {
@@ -200,5 +201,18 @@ namespace Developeram.Web.Areas.Admin.Controllers
             }
             base.Dispose(disposing);
         }
+
+        private string GenerateShortKey(int lenght = 4)
+        {
+            string key = Guid.NewGuid().ToString().Replace("-", "").Substring(0, lenght);
+
+            while (db.GroupRepository.ExistKey(key))
+            {
+                key = Guid.NewGuid().ToString().Replace("-", "").Substring(0, lenght);
+            }
+
+            return key;
+        }
+
     }
 }

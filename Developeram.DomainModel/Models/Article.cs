@@ -42,6 +42,8 @@ namespace Developeram.DomainModel.Models
         public string ImageName { get; set; }
 
 
+        [Display(Name = "لینک کوتاه")]
+        public string ShortLink { get; set; }
         public int GroupId { get; set; }
         public virtual Group Group { get; set; }
 

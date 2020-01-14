@@ -41,6 +41,8 @@ namespace Developeram.DomainModel.Models
         [Column(TypeName = "datetime2")]
         public DateTime CreateTime { get; set; }
 
+        [Display(Name = "لینک کوتاه")]
+        public string ShortLink { get; set; }
 
         public virtual IEnumerable<Article> Articles { get; set; }
         public virtual ICollection<Tag> Tags { get; set; }

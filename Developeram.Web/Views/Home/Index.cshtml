@@ -1,7 +1,12 @@
 ﻿@model IEnumerable<Developeram.DomainModel.Models.Group>
 
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "صفحه اصلی";
+}
+
+
+@section StylesMeta{
+    <meta name="description" content="صفحه اصلی وب سایت دولوپرم. این وب سایت  در جهت قرار دادن آموزش برنامه نویسی پیاده سازی شده است">
 }
 
 
@@ -10,21 +15,21 @@
 
 }
 
-    <div class="row">
+<div class="row">
 
 
-        @foreach (var item in Model)
-        {
+    @foreach (var item in Model)
+    {
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <a href="/Article/@item.TitleUrl/@item.Title.Replace(" ","-")">
+                    <a href="/group/@item.TitleUrl/@item.Title.Replace(" ","-")">
                         <img src="" alt="@item.Title" title="@item.Title" />
-                    </a>  
+                    </a>
                 </div>
                 <div class="panel-footer">@item.Title</div>
             </div>
         </div>
-        }
+    }
 
-    </div>
+</div>

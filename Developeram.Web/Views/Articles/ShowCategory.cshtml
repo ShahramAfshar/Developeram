@@ -4,6 +4,29 @@
     ViewBag.Title = "ShowCategory";
 }
 
+
+@section StylesMeta{
+
+    <meta name="author" content="@Model.MetaAuthor" />
+    <meta name="description" content="@Model.MetaDescription" />
+    <meta name="keywords" content="@Model.MetaKeywords" />
+    <meta name="owner" content="@Model.MetaOwner" />
+
+}
+
+@section shortlink{
+
+
+    <h3 class="subtitle">لینک کوتاه</h3>
+    <div class="box-category">
+
+        @{
+            string link = "https://localhost:44368/g/" + Model.ShortLink;
+        }
+        <a href="@(link)">لینک کوتاه:  @("developram.ir/g/" + Model.ShortLink)</a>
+    </div>
+}
+
 <h1 class="subtitle">@Model.Title</h1>
 
 <img src="/Images/Groups/@Model.ImageName" title="@Model.Title" alt="@Model.Title" />
@@ -23,11 +46,11 @@
 
 
 @*<h3 class="subtitle">محصولات مرتبط</h3>
-<div class="owl-carousel related_pro">
+    <div class="owl-carousel related_pro">
 
-    @Html.Action("ProductRelative", "Products", new { productTitle = Model.ProductTitle });
+        @Html.Action("ProductRelative", "Products", new { productTitle = Model.ProductTitle });
 
-</div>*@
+    </div>*@
 
 
 

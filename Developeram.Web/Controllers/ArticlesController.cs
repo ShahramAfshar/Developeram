@@ -14,7 +14,7 @@ namespace Developeram.Web.Controllers
 
         private readonly UnitOfWork<MyDbContext> db = new UnitOfWork<MyDbContext>();
 
-        [Route("Article/{course}/{title}")]
+        [Route("group/{course}/{title}")]
         public ActionResult ShowCategory(string course,string title)
         {
             Group group = db.GroupRepository.GetByTitleUrl(course);
