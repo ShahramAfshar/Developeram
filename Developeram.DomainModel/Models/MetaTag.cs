@@ -15,9 +15,6 @@ namespace Developeram.DomainModel.Models
         [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
         public string MetaKeywords { get; set; }
 
-        [Display(Name = "متا توضیحات ")]
-        [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
-        public string MetaDescription { get; set; }
 
         [Display(Name = "متا نویسنده ")]
         [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]

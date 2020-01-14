@@ -1,7 +1,7 @@
 ﻿@model Developeram.DomainModel.Models.Article
 
 @{
-    ViewBag.Title = "ShowArticle";
+    ViewBag.Title = Model.TitleUrl;
 }
 
 @section shortlink{
@@ -18,7 +18,7 @@
 @section StylesMeta{
 
     <meta name="author" content="@Model.MetaAuthor"/>
-    <meta name="description" content="@Model.MetaDescription" />
+    <meta name="description" content="@Model.ShortText" />
     <meta name="keywords" content="@Model.MetaKeywords" />
     <meta name="owner" content="@Model.MetaOwner" />
 

@@ -1,8 +1,9 @@
 ﻿@model IEnumerable<Developeram.DomainModel.Models.Article>
 
 @{
-    ViewBag.Title = "Search";
+    ViewBag.Title = "نتایج جستجو "+ ViewBag.search;
 }
+
 
 <h3 class="subtitle"> تعداد @Model.Count() محصول با کلمه @ViewBag.search یافت شد . </h3>
 

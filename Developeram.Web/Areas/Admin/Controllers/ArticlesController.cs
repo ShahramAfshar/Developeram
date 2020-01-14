@@ -51,7 +51,7 @@ namespace Developeram.Web.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ArticleId,Title,ShortText,FullText,CreateDate,ImageName,GroupId,MetaAuthor,MetaDescription,MetaKeywords,MetaOwner,TitleUrl")] Article article, HttpPostedFileBase imgup)
+        public ActionResult Create([Bind(Include = "ArticleId,Title,ShortText,FullText,CreateDate,ImageName,GroupId,MetaAuthor,MetaKeywords,MetaOwner,TitleUrl")] Article article, HttpPostedFileBase imgup)
         {
             if (ModelState.IsValid)
             {
@@ -100,7 +100,7 @@ namespace Developeram.Web.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ArticleId,Title,ShortText,FullText,CreateDate,ImageName,GroupId,MetaAuthor,MetaDescription,MetaKeywords,MetaOwner,TitleUrl")] Article article, HttpPostedFileBase imgup)
+        public ActionResult Edit([Bind(Include = "ArticleId,Title,ShortText,FullText,CreateDate,ImageName,GroupId,MetaAuthor,MetaKeywords,MetaOwner,TitleUrl")] Article article, HttpPostedFileBase imgup)
         {
             if (ModelState.IsValid)
             {
