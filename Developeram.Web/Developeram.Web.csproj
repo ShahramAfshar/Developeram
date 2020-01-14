@@ -201,8 +201,6 @@
     <Compile Include="Utilites\PersianCal.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Admin\TemplateAdminPanel\blank.html" />
-    <Content Include="Areas\Admin\TemplateAdminPanel\buttons.html" />
     <Content Include="Areas\Admin\TemplateAdminPanel\css\bootstrap-rtl.css" />
     <Content Include="Areas\Admin\TemplateAdminPanel\css\bootstrap.css" />
     <Content Include="Areas\Admin\TemplateAdminPanel\css\bootstrap.min.css" />
@@ -211,14 +209,10 @@
     <Content Include="Areas\Admin\TemplateAdminPanel\css\plugins\social-buttons\social-buttons.css" />
     <Content Include="Areas\Admin\TemplateAdminPanel\css\plugins\timeline\timeline.css" />
     <Content Include="Areas\Admin\TemplateAdminPanel\css\sb-admin.css" />
-    <Content Include="Areas\Admin\TemplateAdminPanel\flot.html" />
     <Content Include="Areas\Admin\TemplateAdminPanel\font-awesome\css\font-awesome.css" />
     <Content Include="Areas\Admin\TemplateAdminPanel\font-awesome\css\font-awesome.min.css" />
     <Content Include="Areas\Admin\TemplateAdminPanel\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Areas\Admin\TemplateAdminPanel\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Areas\Admin\TemplateAdminPanel\forms.html" />
-    <Content Include="Areas\Admin\TemplateAdminPanel\grid.html" />
-    <Content Include="Areas\Admin\TemplateAdminPanel\index.html" />
     <Content Include="Areas\Admin\TemplateAdminPanel\js\bootstrap.js" />
     <Content Include="Areas\Admin\TemplateAdminPanel\js\bootstrap.min.js" />
     <Content Include="Areas\Admin\TemplateAdminPanel\js\demo\dashboard-demo.js" />
@@ -236,12 +230,6 @@
     <Content Include="Areas\Admin\TemplateAdminPanel\js\plugins\morris\morris.js" />
     <Content Include="Areas\Admin\TemplateAdminPanel\js\plugins\morris\raphael-2.1.0.min.js" />
     <Content Include="Areas\Admin\TemplateAdminPanel\js\sb-admin.js" />
-    <Content Include="Areas\Admin\TemplateAdminPanel\login.html" />
-    <Content Include="Areas\Admin\TemplateAdminPanel\morris.html" />
-    <Content Include="Areas\Admin\TemplateAdminPanel\notifications.html" />
-    <Content Include="Areas\Admin\TemplateAdminPanel\panels-wells.html" />
-    <Content Include="Areas\Admin\TemplateAdminPanel\tables.html" />
-    <Content Include="Areas\Admin\TemplateAdminPanel\typography.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -1508,13 +1496,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Template\404.html" />
-    <Content Include="Template\about-us.html" />
-    <Content Include="Template\cart.html" />
-    <Content Include="Template\category.html" />
-    <Content Include="Template\checkout.html" />
-    <Content Include="Template\compare.html" />
-    <Content Include="Template\contact-us.html" />
     <Content Include="Template\css\font-awesome\css\font-awesome.css" />
     <Content Include="Template\css\font-awesome\css\font-awesome.min.css" />
     <Content Include="Template\css\font-awesome\fonts\fontawesome-webfont.svg" />
@@ -1527,8 +1508,6 @@
     <Content Include="Template\css\stylesheet-skin3.css" />
     <Content Include="Template\css\stylesheet-skin4.css" />
     <Content Include="Template\css\stylesheet.css" />
-    <Content Include="Template\elements.html" />
-    <Content Include="Template\faq.html" />
     <Content Include="Template\image\banner\cms-block.jpg" />
     <Content Include="Template\image\banner\responsive.jpg" />
     <Content Include="Template\image\banner\sample-banner-1-400x200.jpg" />
@@ -1966,7 +1945,6 @@
     <Content Include="Template\image\socialicons\yahoobuzz.png" />
     <Content Include="Template\image\socialicons\yelp.png" />
     <Content Include="Template\image\socialicons\youtube.png" />
-    <Content Include="Template\index.html" />
     <Content Include="Template\js\bootstrap\css\bootstrap-flipped.css" />
     <Content Include="Template\js\bootstrap\css\bootstrap-flipped.min.css" />
     <Content Include="Template\js\bootstrap\css\bootstrap-rtl.css" />
@@ -1996,9 +1974,6 @@
     <Content Include="Template\js\swipebox\src\img\loader.gif" />
     <Content Include="Template\js\swipebox\src\js\jquery.swipebox.js" />
     <Content Include="Template\js\swipebox\src\js\jquery.swipebox.min.js" />
-    <Content Include="Template\login.html" />
-    <Content Include="Template\product.html" />
-    <Content Include="Template\register.html" />
     <Content Include="Template\revolution\assets\coloredbg.png" />
     <Content Include="Template\revolution\assets\gridtile.png" />
     <Content Include="Template\revolution\assets\gridtile_3x3.png" />
@@ -2087,9 +2062,6 @@
     <Content Include="Template\revolution\php\twitter\RestApi.php" />
     <Content Include="Template\revolution\php\vimeo\class-vimeo.php" />
     <Content Include="Template\revolution\php\youtube\class-youtube.php" />
-    <Content Include="Template\search.html" />
-    <Content Include="Template\sitemap.html" />
-    <Content Include="Template\wishlist.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
