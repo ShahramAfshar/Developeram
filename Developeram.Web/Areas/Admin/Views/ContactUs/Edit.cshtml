@@ -1,30 +1,20 @@
 ﻿@model Developeram.DomainModel.Models.ContactUs
 
 @{
-    ViewBag.Title = "تماس با ما";
+    ViewBag.Title = "Edit";
 }
 
-@section StylesMeta{
-    <meta name="description" content="صفحه اصلی وب سایت دولوپرم. این وب سایت  در جهت قرار دادن آموزش برنامه نویسی پیاده سازی شده است">
-}
+<h2>Edit</h2>
 
-<h1 class="subtitle">ارتباط با دولوپرم</h1>
-<h2>راه های ارتباطی</h2>
-
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
-
-<h3 >با ما ارتباط برقرار کنید</h3>
-@using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+@using (Html.BeginForm())
 {
-
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
+        <h4>ContactUs</h4>
+        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
+        @Html.HiddenFor(model => model.ContactUsId)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -49,10 +39,23 @@
                 @Html.ValidationMessageFor(model => model.Question, "", new { @class = "text-danger" })
             </div>
         </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CreateDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CreateDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CreateDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="ثبت " class="btn btn-success" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

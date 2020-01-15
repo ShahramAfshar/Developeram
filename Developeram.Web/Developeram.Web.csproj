@@ -182,6 +182,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ArticlesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ContactUsController.cs" />
     <Compile Include="Areas\Admin\Controllers\GroupsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\SlidersController.cs" />
@@ -1485,6 +1486,11 @@
     <Content Include="Plugin\PersianDataPicker\css\fontawesome\scss\_stacked.scss" />
     <Content Include="Plugin\PersianDataPicker\css\fontawesome\scss\_variables.scss" />
     <Content Include="Plugin\PersianDataPicker\js\ajaxmin.bat" />
+    <Content Include="Areas\Admin\Views\ContactUs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ContactUs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ContactUs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ContactUs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ContactUs\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
