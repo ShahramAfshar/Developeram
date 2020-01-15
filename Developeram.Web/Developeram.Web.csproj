@@ -1380,6 +1380,7 @@
     <Content Include="Plugin\PersianDataPicker\js\prism.js" />
     <Content Include="Plugin\PersianDataPicker\js\prism.min.js" />
     <Content Include="Plugin\PersianDataPicker\js\vertical-responsive-menu.min.js" />
+    <Content Include="robots.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\TemplateAdminPanel\font-awesome\fonts\fontawesome-webfont.eot" />

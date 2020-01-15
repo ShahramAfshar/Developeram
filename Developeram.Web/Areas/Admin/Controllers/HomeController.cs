@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Developeram.Web.Areas.Admin.SiteMap;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,5 +14,8 @@ namespace Developeram.Web.Areas.Admin.Controllers
         {
             return View();
         }
+
+
+
     }
 }

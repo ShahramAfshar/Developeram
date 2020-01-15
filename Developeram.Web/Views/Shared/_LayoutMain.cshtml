@@ -40,11 +40,11 @@
                         <!-- Social -->
                         <div class="socials">
                             <ul>
-                                <li><a href="/shopcart/ShowCart" title="سبد خرید"><i class="fa fa-linkedin"></i>  <span id="countShopCart"></span></a></li>
-                                <li><a href="/Compare" title="مقایسه"><i class="fa fa-instagram"></i>   <span id="countCompare"></span></a></li>
-                                <li><a href="/wish/ShowWish" title="علاقه مندی ها"><i class="fa fa-facebook"></i>  <span id="countWish"></span></a></li>
-                                <li><a href="/wish/ShowWish" title="علاقه مندی ها"><i class="fa fa-paper-plane"></i>  <span id="countWish"></span></a></li>
-                                <li><a href="/wish/ShowWish" title="علاقه مندی ها"><i class="fa fa-twitter"></i>  <span id="countWish"></span></a></li>
+                                <li><a href="/" title="سبد خرید"><i class="fa fa-linkedin"></i>  <span id="countShopCart"></span></a></li>
+                                <li><a href="/" title="مقایسه"><i class="fa fa-instagram"></i>   <span id="countCompare"></span></a></li>
+                                <li><a href="/" title="علاقه مندی ها"><i class="fa fa-facebook"></i>  <span id="countWish"></span></a></li>
+                                <li><a href="/" title="علاقه مندی ها"><i class="fa fa-paper-plane"></i>  <span id="countWish"></span></a></li>
+                                <li><a href="/" title="علاقه مندی ها"><i class="fa fa-twitter"></i>  <span id="countWish"></span></a></li>
                                 @*<li>
                                         <div id="showCart">
                                             @Html.Action("ShowCart", "ShopCart", new { area = "" })
@@ -189,8 +189,8 @@
                         <div class="contact col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <h5>اطلاعات تماس</h5>
                             <ul>
-                                <li class="address"><i class="fa fa-map-marker"></i>میدان تایمز، شماره 77، نیویورک</li>
-                                <li class="mobile"><i class="fa fa-phone"></i>+21 9898777656</li>
+                                <li class="address"><i class="fa fa-map-marker"></i>استان البرز شهر کرج</li>
+                                <li class="mobile"><i class="fa fa-phone"></i>09362997009</li>
                                 <li class="email"><i class="fa fa-envelope"></i>برقراری ارتباط از طریق <a href="contact-us.html">تماس با ما</a>
                             </ul>
                         </div>
@@ -272,81 +272,6 @@
     <!-- JS Part End-->
     @RenderSection("Scripts", false)
 
-    <script>
-
-        $(function () {
-            countShopCart();
-            countwish();
-            countCompare();
-        });
-
-
-        function countShopCart() {
-            debugger;
-            $.get("/Shopcart/Get", function (res) {
-
-                $("#countShopCart").html(res);
-            });
-        }
-        function countwish() {
-            $.get("/wish/Get", function (res) {
-
-                $("#countWish").html(res);
-            });
-        }
-        function countCompare() {
-            $.get("/Compare/CountCompate", function (res) {
-
-                $("#countCompare").html(res);
-            });
-        }
-
-        function AddToCart(id) {
-            debugger;
-            $.get("/Shopcart/AddToBasket/" + id, function (res) {
-                debugger;
-                $("#countShopCart").html(res);
-                updateShopCart();
-            });
-        }
-        function AddToWish(id) {
-            debugger;
-            $.get("/wish/AddToWish/" + id, function (res) {
-                $("#countWish").html(res);
-            });
-        }
-        function AddToCompare(id) {
-            $.get("/Compare/AddToCompare/" + id, function (res) {
-                $("#countCompare").html(res);
-            });
-        }
-
-        function updateShopCart() {
-            $("#showCart").load("/ShopCart/ShowCart").fadeOut(800).fadeIn(800);
-        }
-        function deleteCart(id) {
-            $.get("/shopcart/DeleteShopCart/" + id, function (res) {
-                $("#myListCart").html(res);
-                countShopCart();
-            });
-        }
-        function deleteWish(id) {
-
-        }
-
-
-        function DeleteCompare(id) {
-            $.get("/Compare/DeleteFromCompare/" + id, function (res) {
-                $('#listCompare').html(res);
-                countCompare()
-            });
-
-        }
-    //function search() {
-    //    window.location("/shaheam");
-    //}
-
-    </script>
 
 </body>
 </html>
