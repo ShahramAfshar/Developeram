@@ -94,19 +94,7 @@ namespace Developeram.Data
                 return commentRepository;
             }
         }
-        private TagRepository tagRepository;
-        public TagRepository TagRepository
-        {
-            get
-            {
-                if (tagRepository == null)
-                {
-                    tagRepository = new TagRepository(db);
-                }
 
-                return tagRepository;
-            }
-        }
         private SliderRepository sliderRepository;
         public SliderRepository SliderRepository
         {
@@ -121,7 +109,19 @@ namespace Developeram.Data
             }
         }
 
+        private TagArticleRepository tagArticleRepository;
+        public TagArticleRepository TagArticleRepository
+        {
+            get
+            {
+                if (tagArticleRepository == null)
+                {
+                    tagArticleRepository = new TagArticleRepository(db);
+                }
 
+                return tagArticleRepository;
+            }
+        }
         #endregion
 
         #region Dispose

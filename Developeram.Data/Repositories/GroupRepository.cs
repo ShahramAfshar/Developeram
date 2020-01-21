@@ -16,8 +16,8 @@ namespace Developeram.Data.Repositories
     {
         //------Definition Private Functions Model -------------//
 
-        Group GetByTitleUrl(string groupTitleUrl);
-        bool ExistKey(string key);
+        //Group GetByTitleUrl(string groupTitleUrl);
+        //bool ExistKey(string key);
     }
 
     public class GroupRepository : Repository<Group>, IGroupRepository
@@ -29,15 +29,15 @@ namespace Developeram.Data.Repositories
             this.db = (this.db ?? (MyDbContext)db);
         }
 
-        public bool ExistKey(string key)
-        {
-            return GetAll().Any(a => a.ShortLink == key);
-        }
+        //public bool ExistKey(string key)
+        //{
+        //    return GetAll().Any(a => a.ShortLink == key);
+        //}
 
-        public Group GetByTitleUrl(string groupTitleUrl)
-        {
-            MyDbContext mydb = new MyDbContext();
-         return  mydb.Groups.Where(g => g.TitleUrl.Trim() == groupTitleUrl.Trim()).SingleOrDefault();
-        }
+        //public Group GetByTitleUrl(string groupTitleUrl)
+        //{
+        //    MyDbContext mydb = new MyDbContext();
+        // return  mydb.Groups.Where(g => g.TitleUrl.Trim() == groupTitleUrl.Trim()).SingleOrDefault();
+        //}
     }
 }

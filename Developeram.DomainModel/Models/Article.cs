@@ -48,7 +48,7 @@ namespace Developeram.DomainModel.Models
         public virtual Group Group { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
-
+        public virtual ICollection<TagArticle>  TagArticles { get; set; }
 
     }
 }

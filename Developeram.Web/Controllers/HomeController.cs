@@ -1,13 +1,11 @@
 ﻿using Developeram.Data;
 using Developeram.Data.DatabaseContext;
 using Developeram.DomainModel.Models;
-using Developeram.Web.Areas.Admin.SiteMap;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using static Developeram.Web.Areas.Admin.SiteMap.Location;
 
 namespace Developeram.Web.Controllers
 {

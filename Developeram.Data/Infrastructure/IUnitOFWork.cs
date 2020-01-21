@@ -13,8 +13,8 @@ namespace Developeram.Data
         //1-Begin TransAction  2-Commit(SaveChange) 3-RollBack
          GroupRepository GroupRepository { get; }
          ArticleRepository ArticleRepository { get; }
-         TagRepository TagRepository { get; }
-         ContactUsRepository ContactUsRepository { get; }
+         TagArticleRepository  TagArticleRepository { get; }
+        ContactUsRepository ContactUsRepository { get; }
         CommentRepository CommentRepository { get; }
         SliderRepository SliderRepository { get; }
 

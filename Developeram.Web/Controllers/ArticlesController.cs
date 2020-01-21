@@ -14,14 +14,14 @@ namespace Developeram.Web.Controllers
 
         private readonly UnitOfWork<MyDbContext> db = new UnitOfWork<MyDbContext>();
 
-        [Route("group/{course}/{title}")]
-        public ActionResult ShowCategory(string course,string title)
-        {
-            Group group = db.GroupRepository.GetByTitleUrl(course);
-            ViewBag.Articles = db.ArticleRepository.GetMany(a => a.GroupId == group.GroupId);
+        //[Route("group/{course}/{title}")]
+        //public ActionResult ShowCategory(string course,string title)
+        //{
+        //    Group group = db.GroupRepository.GetByTitleUrl(course);
+        //    ViewBag.Articles = db.ArticleRepository.GetMany(a => a.GroupId == group.GroupId);
 
-            return View(group);
-        }
+        //    return View(group);
+        //}
 
 
         [Route("{course}/{id}/{title}")]

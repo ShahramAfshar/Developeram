@@ -9,43 +9,19 @@ using System.Web.Mvc;
 
 namespace Developeram.DomainModel.Models
 {
-    public class Group:MetaTag
+    public class Group
     {
         [Key]
+        [Display(Name = "عنوان گروه")]
         public int GroupId { get; set; }
 
         [Display(Name = "عنوان گروه")]
         [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
+        [MinLength(3, ErrorMessage = "فیلد{0} نمی تواند کمتر {1} کاراکتر باشد")]
+        [MaxLength(30, ErrorMessage = "فیلد{0} نمی تواند بیشتر {1} کاراکتر باشد")]
         public string Title { get; set; }
 
-        [Display(Name = "عنوان آدرس")]
-        [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
-        public string TitleUrl { get; set; }
 
-        [Display(Name = "توضیح کوتاه")]
-        [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
-        [AllowHtml]
-        [DataType(DataType.MultilineText)]
-        public string ShortText { get; set; }
-
-        [Display(Name = "متن کامل")]
-        [Required(ErrorMessage = " فیلد{0} نمی تواند خالی باشد")]
-        [AllowHtml]
-        [DataType(DataType.MultilineText)]
-        public string FullText { get; set; }
-
-        [Display(Name = "نام عکس")]
-        public string ImageName { get; set; }
-
-        [Display(Name = "تاریخ ثبت")]
-        [Column(TypeName = "datetime2")]
-        public DateTime CreateTime { get; set; }
-
-        [Display(Name = "لینک کوتاه")]
-        public string ShortLink { get; set; }
-
-        public virtual IEnumerable<Article> Articles { get; set; }
-        public virtual ICollection<Tag> Tags { get; set; }
-
+        public virtual ICollection<Article>  Articles { get; set; }
     }
 }

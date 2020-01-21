@@ -51,7 +51,7 @@ namespace Developeram.Web.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ArticleId,Title,ShortText,FullText,CreateDate,ImageName,GroupId,MetaAuthor,MetaKeywords,MetaOwner,TitleUrl")] Article article, HttpPostedFileBase imgup)
+        public ActionResult Create([Bind(Include = "ArticleId,Title,ShortText,FullText,CreateDate,ImageName,GroupId,MetaAuthor,MetaKeywords,MetaOwner,TitleUrl")] Article article, HttpPostedFileBase imgup, string tags)
         {
             if (ModelState.IsValid)
             {
@@ -64,6 +64,19 @@ namespace Developeram.Web.Areas.Admin.Controllers
                 }
                 else
                     article.ImageName = "images.jpg";
+
+                if (!string.IsNullOrEmpty(tags))
+                {
+                    string[] tag = tags.Split('-');
+                    foreach (string t in tag)
+                    {
+                        db.TagArticleRepository.Insert(new TagArticle()
+                        {
+                            ArticleId = article.ArticleId,
+                            Title = t.Trim()
+                        });
+                    }
+                }
 
 
                 article.CreateDate = DateTime.Now;
@@ -100,7 +113,7 @@ namespace Developeram.Web.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ArticleId,Title,ShortText,FullText,CreateDate,ImageName,GroupId,MetaAuthor,MetaKeywords,MetaOwner,TitleUrl")] Article article, HttpPostedFileBase imgup)
+        public ActionResult Edit([Bind(Include = "ArticleId,Title,ShortText,FullText,CreateDate,ImageName,GroupId,MetaAuthor,MetaKeywords,MetaOwner,TitleUrl")] Article article, HttpPostedFileBase imgup, string tags)
         {
             if (ModelState.IsValid)
             {
@@ -115,6 +128,26 @@ namespace Developeram.Web.Areas.Admin.Controllers
                     article.ImageName = Guid.NewGuid().ToString() + Path.GetExtension(imgup.FileName);
                     imgup.SaveAs(Server.MapPath("/Images/Articles/" + article.ImageName));
                 }
+
+
+
+                //start tags
+                db.TagArticleRepository.GetMany(t => t.ArticleId == article.ArticleId).ToList().ForEach(t => db.TagArticleRepository.Delete(t));
+
+
+                if (!string.IsNullOrEmpty(tags))
+                {
+                    string[] tag = tags.Split('-');
+                    foreach (string t in tag)
+                    {
+                        db.TagArticleRepository.Insert(new TagArticle()
+                        {
+                            ArticleId = article.ArticleId,
+                            Title = t.Trim()
+                        });
+                    }
+                }
+                //end tags
 
                 db.ArticleRepository.Update(article);
                 db.Commit();

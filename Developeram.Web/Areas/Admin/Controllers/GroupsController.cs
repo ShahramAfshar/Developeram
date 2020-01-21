@@ -50,38 +50,11 @@ namespace Developeram.Web.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "GroupId,Title,TitleUrl,ShortText,FullText,CreateTime,MetaAuthor,MetaKeywords,MetaOwner")] Group group, HttpPostedFileBase imgup, string tags)
+        public ActionResult Create([Bind(Include = "GroupId,Title")] Group group)
         {
             if (ModelState.IsValid)
             {
               
-                if (imgup != null)
-                {
-                    group.ImageName = Guid.NewGuid().ToString() + Path.GetExtension(imgup.FileName);
-                    imgup.SaveAs(Server.MapPath("/Images/Groups/" + group.ImageName));
-
-                }
-                else
-                    group.ImageName = "images.jpg";
-
-
-                group.CreateTime = DateTime.Now;
-                group.ShortLink = GenerateShortKey();
-
-                if (!string.IsNullOrEmpty(tags))
-                {
-                    string[] tag = tags.Split('-');
-                    foreach (string t in tag)
-                    {
-                        db.TagRepository.Insert(new Tag()
-                        {
-                            GroupId = group.GroupId,
-                            Title = t.Trim()
-                        });
-                    }
-                }
-
-
                 db.GroupRepository.Insert(group);
                 db.Commit();
 
@@ -104,7 +77,6 @@ namespace Developeram.Web.Areas.Admin.Controllers
                 return HttpNotFound();
             }
 
-            ViewBag.Tags = string.Join(",", group.Tags.Select(t => t.Title).ToList());
             return View(group);
         }
 
@@ -118,35 +90,7 @@ namespace Developeram.Web.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
 
-                if (imgup != null)
-                {
-                    if (group.ImageName != "images.jpg")
-                    {
-                        System.IO.File.Delete(Server.MapPath("/Images/Groups/" + group.ImageName));
-                    }
 
-                    group.ImageName = Guid.NewGuid().ToString() + Path.GetExtension(imgup.FileName);
-                    imgup.SaveAs(Server.MapPath("/Images/Groups/" + group.ImageName));
-                }
-
-
-                //start tags
-                db.TagRepository.GetMany(t => t.GroupId == group.GroupId).ToList().ForEach(t => db.TagRepository.Delete(t));
-
-
-                if (!string.IsNullOrEmpty(tags))
-                {
-                    string[] tag = tags.Split('-');
-                    foreach (string t in tag)
-                    {
-                        db.TagRepository.Insert(new Tag()
-                        {
-                            GroupId = group.GroupId,
-                            Title = t.Trim()
-                        });
-                    }
-                }
-                //end tags
 
                 // group.ImageName = "images.jpg";
 
@@ -182,10 +126,7 @@ namespace Developeram.Web.Areas.Admin.Controllers
         {
             Group group = db.GroupRepository.GetById(id);
 
-            if (group.ImageName != "images.jpg")
-            {
-                System.IO.File.Delete(Server.MapPath("/Images/Groups/" + group.ImageName));
-            }
+ 
 
             db.GroupRepository.Delete(group);
             db.Commit();
@@ -202,17 +143,17 @@ namespace Developeram.Web.Areas.Admin.Controllers
             base.Dispose(disposing);
         }
 
-        private string GenerateShortKey(int lenght = 4)
-        {
-            string key = Guid.NewGuid().ToString().Replace("-", "").Substring(0, lenght);
+        //private string GenerateShortKey(int lenght = 4)
+        //{
+        //    string key = Guid.NewGuid().ToString().Replace("-", "").Substring(0, lenght);
 
-            while (db.GroupRepository.ExistKey(key))
-            {
-                key = Guid.NewGuid().ToString().Replace("-", "").Substring(0, lenght);
-            }
+        //    while (db.GroupRepository.ExistKey(key))
+        //    {
+        //        key = Guid.NewGuid().ToString().Replace("-", "").Substring(0, lenght);
+        //    }
 
-            return key;
-        }
+        //    return key;
+        //}
 
     }
 }

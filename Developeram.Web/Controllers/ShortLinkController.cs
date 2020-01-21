@@ -25,23 +25,23 @@ namespace Developeram.Web.Controllers
                 return HttpNotFound();
             }
           //  / @Model.TitleUrl / @item.ArticleId / @item.TitleUrl.Replace(" ", "-")
-            Uri uri = new Uri(urlSite + "/" +article.Group.TitleUrl+"/"+article.ArticleId+"/"+ article.TitleUrl.Replace(" ","-"));
+            Uri uri = new Uri(urlSite + "/" +article.Group.Title+"/"+article.ArticleId+"/"+ article.TitleUrl.Replace(" ","-"));
             return Redirect(uri.AbsoluteUri);
         }
 
-        [Route("g/{key}")]
-        public ActionResult ShortKeyRedirectToGroup(string key)
-        {
-            var group = db.GroupRepository.Get(p => p.ShortLink == key);
+        //[Route("g/{key}")]
+        //public ActionResult ShortKeyRedirectToGroup(string key)
+        //{
+        //    var group = db.GroupRepository.Get(p => p.ShortLink == key);
 
-            if (group == null)
-            {
-                return HttpNotFound();
-            }
-            ///Article/@item.TitleUrl/@item.Title.Replace(" ","-")
-            Uri uri = new Uri(urlSite + "/Group/" + group.TitleUrl + "/" + group.Title.Replace(" ","-"));
+        //    if (group == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    ///Article/@item.TitleUrl/@item.Title.Replace(" ","-")
+        //    Uri uri = new Uri(urlSite + "/Group/" + group.TitleUrl + "/" + group.Title.Replace(" ","-"));
 
-            return Redirect(uri.AbsoluteUri);
-        }
+        //    return Redirect(uri.AbsoluteUri);
+        //}
     }
 }

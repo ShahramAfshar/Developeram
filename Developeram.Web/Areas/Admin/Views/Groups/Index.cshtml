@@ -15,12 +15,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShortText)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FullText)
-        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.CreateTime)
         </th>
@@ -32,12 +27,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Title)
         </td>
-        <td>
-            @Html.Raw(item.ShortText)
-        </td>
-        <td>
-            @Html.Raw(item.FullText)
-        </td>
+
         <td>
            @item.CreateTime
         </td>
