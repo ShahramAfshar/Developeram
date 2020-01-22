@@ -47,6 +47,9 @@ namespace Developeram.DomainModel.Models
         public int GroupId { get; set; }
         public virtual Group Group { get; set; }
 
+        [Display(Name = "تعداد بازدید")]
+        public int Visit { get; set; }
+
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<TagArticle>  TagArticles { get; set; }
 

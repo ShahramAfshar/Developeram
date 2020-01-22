@@ -16,9 +16,6 @@
             @Html.DisplayNameFor(model => model.Title)
         </th>
 
-        <th>
-            @Html.DisplayNameFor(model => model.CreateTime)
-        </th>
         <th></th>
     </tr>
 
@@ -28,9 +25,7 @@
             @Html.DisplayFor(modelItem => item.Title)
         </td>
 
-        <td>
-           @item.CreateTime
-        </td>
+
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.GroupId }) |
             @Html.ActionLink("Details", "Details", new { id=item.GroupId }) |

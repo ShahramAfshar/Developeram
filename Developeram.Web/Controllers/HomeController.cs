@@ -64,6 +64,16 @@ namespace Developeram.Web.Controllers
             return PartialView("_MenuPartial", db.GroupRepository.GetAll());
         }
 
+        public ActionResult TopNews()
+        {
+            var res = db.ArticleRepository.GetAll().OrderByDescending(n => n.Visit).Take(4);
+            return PartialView("_PartialTopNews",res);
+        }
 
+        public ActionResult LastNews()
+        {
+            var res = db.ArticleRepository.GetAll().OrderByDescending(n => n.ArticleId).Take(5);
+            return PartialView("_PartialLastNews",res);
+        }
     }
 }

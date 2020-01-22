@@ -42,7 +42,7 @@ namespace Developeram.Web.Areas.Admin.Controllers
         // GET: Admin/Articles/Create
         public ActionResult Create()
         {
-            ViewBag.GroupId = new SelectList(db.GroupRepository.GetAll(), "GroupId", "TitleUrl");
+            ViewBag.GroupId = new SelectList(db.GroupRepository.GetAll(), "GroupId", "Title");
             return View();
         }
 
@@ -88,7 +88,7 @@ namespace Developeram.Web.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.GroupId = new SelectList(db.GroupRepository.GetAll(), "GroupId", "TitleUrl", article.GroupId);
+            ViewBag.GroupId = new SelectList(db.GroupRepository.GetAll(), "GroupId", "Title", article.GroupId);
             return View(article);
         }
 
@@ -104,7 +104,10 @@ namespace Developeram.Web.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.GroupId = new SelectList(db.GroupRepository.GetAll(), "GroupId", "TitleUrl", article.GroupId);
+            ViewBag.GroupId = new SelectList(db.GroupRepository.GetAll(), "GroupId", "Title", article.GroupId);
+
+
+            ViewBag.Tags = string.Join("-", article.TagArticles.Select(t => t.Title).ToList());
             return View(article);
         }
 
@@ -154,7 +157,9 @@ namespace Developeram.Web.Areas.Admin.Controllers
 
                 return RedirectToAction("Index");
             }
-            ViewBag.GroupId = new SelectList(db.GroupRepository.GetAll(), "GroupId", "TitleUrl", article.GroupId);
+            ViewBag.GroupId = new SelectList(db.GroupRepository.GetAll(), "GroupId", "Title", article.GroupId);
+
+            ViewBag.Tags = string.Join("-", article.TagArticles.Select(t => t.Title).ToList());
             return View(article);
         }
 
@@ -171,11 +176,6 @@ namespace Developeram.Web.Areas.Admin.Controllers
                 return HttpNotFound();
             }
 
-            if (article.ImageName != "images.jpg")
-            {
-                System.IO.File.Delete(Server.MapPath("/Images/Articles/" + article.ImageName));
-            }
-
 
             return View(article);
         }
@@ -186,6 +186,14 @@ namespace Developeram.Web.Areas.Admin.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Article article = db.ArticleRepository.GetById(id);
+
+            if (article.ImageName != "images.jpg")
+            {
+                System.IO.File.Delete(Server.MapPath("/Images/Articles/" + article.ImageName));
+            }
+
+            db.TagArticleRepository.Delete(t => t.ArticleId == article.ArticleId);
+
             db.ArticleRepository.Delete(article);
             db.Commit();
 

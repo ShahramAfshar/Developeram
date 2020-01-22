@@ -190,6 +190,7 @@
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ShortLinkController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1492,6 +1493,8 @@
     <Content Include="Areas\Admin\Views\ContactUs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\ContactUs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ContactUs\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2168,12 +2171,13 @@
     <Content Include="Views\Shared\_LayoutMain.cshtml" />
     <Content Include="Views\Home\_PartialCategory.cshtml" />
     <Content Include="Views\Home\_PartialSlider.cshtml" />
-    <Content Include="Views\Articles\ShowCategory.cshtml" />
     <Content Include="Views\Articles\ShowArticle.cshtml" />
     <Content Include="Views\Articles\CreateComment.cshtml" />
     <Content Include="Views\Articles\ShowComments.cshtml" />
     <Content Include="Views\Shared\_MenuPartial.cshtml" />
-    <Content Include="Views\Articles\Search.cshtml" />
+    <Content Include="Views\Home\_PartialLastNews.cshtml" />
+    <Content Include="Views\Home\_PartialTopNews.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

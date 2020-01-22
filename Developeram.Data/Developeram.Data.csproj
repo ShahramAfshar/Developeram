@@ -59,9 +59,9 @@
     <Compile Include="Infrastructure\IUnitOFWork.cs" />
     <Compile Include="Infrastructure\Repository.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\202001210618506_ini701.cs" />
-    <Compile Include="Migrations\202001210618506_ini701.Designer.cs">
-      <DependentUpon>202001210618506_ini701.cs</DependentUpon>
+    <Compile Include="Migrations\202001211047124_new4.cs" />
+    <Compile Include="Migrations\202001211047124_new4.Designer.cs">
+      <DependentUpon>202001211047124_new4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -84,8 +84,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001210618506_ini701.resx">
-      <DependentUpon>202001210618506_ini701.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001211047124_new4.resx">
+      <DependentUpon>202001211047124_new4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Developeram.DomainModel.Models.Article>
+
+@{
+    ViewBag.Title = "نتایج جستجو " + ViewBag.search;
+}
+
+
+<h3 class="subtitle"> تعداد @Model.Count() محصول با کلمه @ViewBag.search یافت شد . </h3>
+
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+        <div class="col-md-6">
+            <a href="/@item.ArticleId/@item.TitleUrl.Replace(" ","-")" title="@item.Title">
+                <img class="thumbnail img-thumbnail" src="~/Images/Articles/@item.ImageName" alt="@item.Title" title="@item.Title" />
+            </a>
+        </div>
+        <div class="col-md-6">
+
+            <h2>@item.Title</h2>
+            @Html.Raw(item.ShortText)
+            <a class="btn btn-sm btn-default" href="/@item.ArticleId/@item.TitleUrl.Replace(" ","-")" title="@item.Title">
+                ادامه مطلب
+            </a>
+        </div>
+    }
+
+</div>

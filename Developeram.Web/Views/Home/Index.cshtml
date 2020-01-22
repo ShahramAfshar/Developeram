@@ -9,27 +9,22 @@
     <meta name="description" content="صفحه اصلی وب سایت دولوپرم. این وب سایت  در جهت قرار دادن آموزش برنامه نویسی پیاده سازی شده است">
 }
 
+<h1 class="subtitle">صفحه اصلی سایت دولوپرم</h1>
 
 @section Slider{
     @Html.Action("Slider")
 
 }
 
-<div class="row">
 
 
-    @foreach (var item in Model)
-    {
-        <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <a href="/group/@item.TitleUrl/@item.Title.Replace(" ","-")">
-                        <img src="" alt="@item.Title" title="@item.Title" />
-                    </a>
-                </div>
-                <div class="panel-footer">@item.Title</div>
-            </div>
-        </div>
-    }
+    <div class="row">
+        <h2 class="subtitle"> آخرین اخبار</h2>
+        @Html.Action("TopNews")
 
-</div>
+    </div>
+
+    <div class="row">
+        <h2 class="subtitle"> پر بازدیدترین اخبار</h2>
+        @Html.Action("LastNews")
+    </div>

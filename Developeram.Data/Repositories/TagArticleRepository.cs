@@ -14,7 +14,6 @@ namespace Developeram.Data.Repositories
     {
         //------Definition Private Functions Model -------------//
 
-
     }
 
     public class TagArticleRepository : Repository<TagArticle>, ITagArticleRepository
@@ -26,11 +25,9 @@ namespace Developeram.Data.Repositories
             this.db = (this.db ?? (MyDbContext)db);
         }
 
+        public void DeleteByArticle(int articleId)
+        {
 
-
-
-
-
-
+        }
     }
 }

@@ -12,7 +12,8 @@ namespace Developeram.Web.Controllers
     {
         private readonly UnitOfWork<MyDbContext> db = new UnitOfWork<MyDbContext>();
 
-        string urlSite = "https://localhost:44368";
+       // string urlSite = "https://localhost:44368";
+        string urlSite = "http://developeram.ir/";
 
         // GET: ShortLink
         [Route("a/{key}")]
@@ -25,7 +26,7 @@ namespace Developeram.Web.Controllers
                 return HttpNotFound();
             }
           //  / @Model.TitleUrl / @item.ArticleId / @item.TitleUrl.Replace(" ", "-")
-            Uri uri = new Uri(urlSite + "/" +article.Group.Title+"/"+article.ArticleId+"/"+ article.TitleUrl.Replace(" ","-"));
+            Uri uri = new Uri(urlSite + "/" +article.ArticleId+"/"+ article.TitleUrl.Replace(" ","-"));
             return Redirect(uri.AbsoluteUri);
         }
 

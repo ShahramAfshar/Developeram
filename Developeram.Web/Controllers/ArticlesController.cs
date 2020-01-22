@@ -24,7 +24,7 @@ namespace Developeram.Web.Controllers
         //}
 
 
-        [Route("{course}/{id}/{title}")]
+        [Route("Article/{id}/{title}")]
         public ActionResult ShowArticle(string title, int id)
         {
             Article article = db.ArticleRepository.GetById(id);
@@ -60,10 +60,7 @@ namespace Developeram.Web.Controllers
             return PartialView(comment);
         }
 
-        public ActionResult Search(string q)
-        {
-            ViewBag.search = q;
-            return View(db.ArticleRepository.Search(q));
-        }
+ 
+
     }
 }
