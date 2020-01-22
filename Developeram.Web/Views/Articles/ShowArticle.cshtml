@@ -9,7 +9,7 @@
     <div class="box-category">
 
         @{
-            string link = "https://localhost:44368/a/" + Model.ShortLink;
+            string link = "http://developeram.ir/a/" + Model.ShortLink;
         }
         <a href="@(link)">لینک کوتاه : @("developram.ir/a/" + Model.ShortLink)</a>
     </div>
@@ -31,7 +31,7 @@
 @Html.Raw(Model.ShortText)
 @Html.Raw(Model.FullText)
 
-<br />
+<hr />
 <section class="border-radius tags-layer">
     @foreach (var item in Model.TagArticles)
     {

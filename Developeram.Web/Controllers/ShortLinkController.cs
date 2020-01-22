@@ -26,7 +26,7 @@ namespace Developeram.Web.Controllers
                 return HttpNotFound();
             }
           //  / @Model.TitleUrl / @item.ArticleId / @item.TitleUrl.Replace(" ", "-")
-            Uri uri = new Uri(urlSite + "/" +article.ArticleId+"/"+ article.TitleUrl.Replace(" ","-"));
+            Uri uri = new Uri(urlSite + "/Article/" + article.ArticleId+"/"+ article.TitleUrl.Replace(" ","-"));
             return Redirect(uri.AbsoluteUri);
         }
 
