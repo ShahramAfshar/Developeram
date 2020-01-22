@@ -31,6 +31,15 @@
 @Html.Raw(Model.ShortText)
 @Html.Raw(Model.FullText)
 
+<br />
+<section class="border-radius tags-layer">
+    @foreach (var item in Model.TagArticles)
+    {
+
+        <a href="/Search?q=@item.Title">@item.Title</a>
+    }
+
+</section>
 
 @Html.Action("CreateComment", "Articles", new { id = Model.ArticleId })
 
