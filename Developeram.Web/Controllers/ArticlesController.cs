@@ -28,6 +28,10 @@ namespace Developeram.Web.Controllers
         public ActionResult ShowArticle(string title, int id)
         {
             Article article = db.ArticleRepository.GetById(id);
+            article.Visit = article.Visit + 1;
+            db.ArticleRepository.Update(article);
+            db.Commit();
+
             return View(article);
         }
 
